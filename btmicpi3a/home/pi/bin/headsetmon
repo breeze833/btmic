@@ -13,7 +13,7 @@ while `true`; do
 	done
 
 	pacmd set-card-profile $card headset_head_unit
-	pacmd load-module module-loopback latency_msec=200 source=$source sink=$sink
+	pacmd load-module module-loopback latency_msec=50 source=$source sink=$sink
 
 	#echo BT card ready
 	paplay -d $sink $notify

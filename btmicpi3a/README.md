@@ -9,7 +9,7 @@ from the PC's configuration. This eliminates the driver installation issue.
 Routing the headset audio-in to the on-board audio-out can be done by
 loading the PulseAudio loopback module. The Pi3A is powerful enough
 for this task and thus the transmission delay is low (RPi1 also works, but
-the loopback ``latency_msec`` parameter may need to be enlarged).
+the loopback ``latency_msec`` parameter may need to be enlarged to 200).
 
 ## Installation
 

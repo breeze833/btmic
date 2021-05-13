@@ -33,6 +33,7 @@ As the ``root``, set up the files:
  *   Copy ``/root/bin/setup_uac1.sh``
  *   Modify ``/etc/rc.local`` and add a line to execute the above script
      *   sample file is provided
+ *   Add the user ``pi`` to the bluetooth group
  *   Use ``raspi-config`` to configure automatic console login
 
 As the user ``pi``, set up the files:
@@ -47,6 +48,7 @@ As the user ``pi``, set up the files:
      *   you need to put the headset in discoverable mode
      *   the script will pair and trust it
  *   Modify the headset address in ``/home/pi/bin/headset_mon.py``
+ *   ``systemctl --user enable pulseaudio``
 
 As the ``root``, shutdown the system.
 
