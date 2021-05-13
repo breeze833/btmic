@@ -4,11 +4,11 @@ RPi0 can be configured to work as a gadget. This approach is to use RPi0 as an U
 
 Once the RPi0 is plugged into the PC, it boots and enables it as an audio gadget.
 The gadget has two interfaces. On the PC side, we see an UAC1 audio device and can capture audio
-from it. On the RPi0 side, we see an ALSA device that we can feed the audio to.
+from it. On the RPi0 side, we see an ALSA device that we can feed the audio data to.
 
-When the bluetooth mic is connected, the RPi0 sees an audio source for capturing the sound.
+When the bluetooth mic is connected, the RPi0 creates an audio source for capturing the sound.
 We can establish a forwarding channel from the bluetooth source to the ALSA sink.
-By the help of the PulseAudio system, the audio-forwarding can be set up via a loopback module.
+By the help of the PulseAudio system, the audio-forwarding can be achieved via a loopback module.
 
 The above is the concpet of the RPi0 based system. There are some minior issues such as how to
 detect the connection of the bluetooth headset. Please refer to the script files. They require
@@ -62,3 +62,6 @@ As the ``root``, shutdown the system.
  *   Sometimes the headset becomes unpaired and need re-setup.
  *   If you encounter audio glitch or out-of-sync, reconnect the headset (turn off and on).
 
+## References
+ 1.  [COMPOSITE USB GADGETS ON THE RASPBERRY PI ZERO](http://www.isticktoit.net/?p=1383)
+ 1.  [Using ``bluetoothctl`` to connect a device](https://wiki.archlinux.org/title/bluetooth)

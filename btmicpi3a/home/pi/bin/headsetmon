@@ -1,0 +1,30 @@
+#!/bin/bash
+source="bluez_source.82_52_E0_24_16_95.headset_head_unit"
+sink="alsa_output.platform-soc_audio.analog-mono"
+card="bluez_card.82_52_E0_24_16_95"
+notify="/home/pi/share/glass-water-1.wav"
+
+paplay -d $sink $notify
+while `true`; do
+	ncards=1
+	while [ $ncards -eq 1 ]; do
+		ncards=`pacmd list-cards|head -n 1|cut -f 1 -d ' '`
+		sleep 2
+	done
+
+	pacmd set-card-profile $card headset_head_unit
+	pacmd load-module module-loopback latency_msec=200 source=$source sink=$sink
+
+	#echo BT card ready
+	paplay -d $sink $notify
+	sleep 1
+
+	while [ $ncards -eq 2 ]; do
+		ncards=`pacmd list-cards|head -n 1|cut -f 1 -d ' '`
+		sleep 2
+	done
+
+	#echo BT card leaves
+	paplay -d $sink $notify
+	sleep 1
+done
